@@ -1,0 +1,63 @@
+@use "../config";
+
+.newTimeContainer {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pillContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+  background-color: lighten(config.$primary, 10%);
+  padding: 5px 10px 5px 10px;
+  border-radius: 30px;
+}
+
+.inputField {
+  background-color: transparent;
+  border: none;
+  color: config.$white;
+  text-align: center;
+
+  &::placeholder {
+    color: config.$primary;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.stopwatchButton {
+  border: none;
+  background-color: config.$green;
+  color: config.$white;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.toLogLink {
+  color: config.$primary;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    color: config.$white;
+  }
+}

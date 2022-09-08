@@ -1,0 +1,5 @@
+@use "../config";
+
+.stopwatchTime {
+  color: config.$white;
+}
