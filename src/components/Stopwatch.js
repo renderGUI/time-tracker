@@ -1,8 +1,9 @@
 import classes from "./Stopwatch.module.scss";
-import { useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { LogContext } from "../contexts/log-context";
 
 const Stopwatch = (props) => {
-  const [seconds, setSeconds] = useState(0);
+  const { seconds, setSeconds, convertToHHMMSS } = useContext(LogContext);
 
   useEffect(() => {
     let stopwatch;
@@ -16,12 +17,6 @@ const Stopwatch = (props) => {
       clearInterval(stopwatch);
     };
   }, [props.stopwatchIsRunning]);
-
-  const convertToHHMMSS = (seconds) => {
-    const d = new Date(null);
-    d.setSeconds(seconds);
-    return d.toISOString().substr(11, 8);
-  };
 
   return (
     <>

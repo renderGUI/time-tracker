@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import Stopwatch from "../components/Stopwatch";
 import { Link } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
+import { LogContext } from "../contexts/log-context";
+import SaveButton from "../components/SaveButton";
 
 const NewTime = () => {
+  const { inputRef } = useContext(LogContext);
   const [stopwatchIsRunning, setStopwatchIsRunning] = useState(false);
   const [stopwatchStarted, setStopwatchStarted] = useState(false);
   const [shake, setShake] = useState(0);
-
-  const inputRef = useRef();
 
   const toggleStopwatchHandler = () => {
     if (inputRef.current.value.trim().length === 0) {
@@ -47,12 +48,13 @@ const NewTime = () => {
         >
           <FontAwesomeIcon icon={stopwatchIsRunning ? faPause : faPlay} />
         </button>
-        {!stopwatchIsRunning && (
+        {!stopwatchIsRunning && !stopwatchStarted && (
           <Link className={classes.toLogLink} to="/log">
             >>>
           </Link>
         )}
       </div>
+      {!stopwatchIsRunning && stopwatchStarted && <SaveButton />}
     </div>
   );
 };

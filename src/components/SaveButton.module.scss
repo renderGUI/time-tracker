@@ -1,0 +1,17 @@
+@use "../config";
+
+.buttonContainer {
+  margin-top: 15px;
+}
+
+.saveButton {
+  border: none;
+  background-color: config.$orange;
+  color: config.$white;
+  border-radius: 25px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken(config.$orange, 5%);
+  }
+}
