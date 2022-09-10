@@ -7,11 +7,6 @@ export const LogContextProvider = (props) => {
   const inputRef = useRef();
   const [loggedTask, setLoggedTask] = useState();
   const [loggedTime, setLoggedTime] = useState();
-  const [log, setLog] = useState(
-    localStorage.getItem("log") === null
-      ? []
-      : JSON.parse(localStorage.getItem("log"))
-  );
 
   const convertToHHMMSS = (seconds) => {
     const d = new Date(null);
@@ -26,8 +21,6 @@ export const LogContextProvider = (props) => {
     loggedTask,
     setLoggedTask,
     loggedTime,
-    log,
-    setLog,
     setLoggedTime,
     convertToHHMMSS,
   };

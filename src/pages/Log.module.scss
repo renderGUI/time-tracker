@@ -1,0 +1,85 @@
+@use "../config";
+
+.logContainer {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+span {
+  color: config.$orange;
+}
+
+hr {
+  margin-top: 1px;
+  border: 1px solid lighten(config.$primary, 10%);
+  border-radius: 25px;
+  width: 95%;
+}
+
+.logCard {
+  background-color: lighten(config.$primary, 5%);
+  border-radius: 25px;
+  width: 95%;
+
+  .topSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: config.$white;
+
+    .mainHeading {
+      margin-left: 10px;
+    }
+
+    .totalTime {
+      margin-right: 10px;
+    }
+  }
+
+  .bottomSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .newButton,
+    .editButton {
+      border: none;
+      border-radius: 25px;
+      color: config.$white;
+      transition: 0.3s ease-in-out;
+      font-size: 1.125rem;
+    }
+
+    .newButton {
+      background-color: config.$green;
+      margin-top: 10px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: darken(config.$green, 10%);
+      }
+    }
+
+    .editButton {
+      background-color: lighten(config.$primary, 15%);
+      margin-top: 10px;
+      margin-bottom: 15px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: lighten(config.$primary, 10%);
+      }
+    }
+  }
+
+  .emptyLog {
+    font-weight: 600;
+    color: config.$orange;
+    text-align: center;
+  }
+}

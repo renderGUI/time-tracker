@@ -1,0 +1,19 @@
+@use "../config";
+
+.taskContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+
+  .task {
+    margin-left: 10px;
+    color: config.$white;
+  }
+
+  .time {
+    margin-right: 10px;
+    color: config.$orange;
+  }
+}
