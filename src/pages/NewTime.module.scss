@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
   column-gap: 15px;
-  background-color: lighten(config.$primary, 10%);
+  background-color: lighten(config.$primary, 5%);
   padding: 5px 10px 5px 10px;
   border-radius: 30px;
 }
@@ -93,9 +93,27 @@
   color: config.$primary;
   transition: 0.3s ease-in-out;
   text-decoration: none;
+  font-weight: 600;
 
   &:hover {
     cursor: pointer;
     color: config.$white;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .inputField,
+  .stopwatchButton {
+    font-size: 1.875rem;
+  }
+
+  .stopwatchButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pillContainer {
+    padding: 2px 25px 2px 25px;
+    border-radius: 50px;
   }
 }

@@ -3,3 +3,9 @@
 .stopwatchTime {
   color: config.$white;
 }
+
+@media screen and (min-width: 1000px) {
+  .stopwatchTime {
+    font-size: 1.875rem;
+  }
+}

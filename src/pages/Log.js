@@ -46,9 +46,11 @@ const Log = () => {
           >
             Start a New Task
           </button>
-          <button className={classes.editButton} type="button">
-            Edit
-          </button>
+          {log.length > 0 && (
+            <button className={classes.editButton} type="button">
+              Edit
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -17,3 +17,9 @@
     color: config.$orange;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  .taskContainer {
+    font-size: 1.125rem;
+  }
+}
