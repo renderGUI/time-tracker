@@ -8,12 +8,11 @@
   font-weight: 600;
 
   .task {
-    margin-left: 10px;
     color: config.$white;
+    width: 70px;
   }
 
   .time {
-    margin-right: 10px;
     color: config.$orange;
   }
 }

@@ -1,9 +1,11 @@
 import classes from "./Log.module.scss";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { LogContext } from "../contexts/log-context";
 import Task from "../components/Task";
 
 const Log = () => {
+  const { inEditMode, setInEditMode } = useContext(LogContext);
   const [log, setLog] = useState(
     localStorage.getItem("log") === null
       ? []
@@ -14,6 +16,10 @@ const Log = () => {
 
   const newHandler = () => {
     navigate("/");
+  };
+
+  const editHandler = () => {
+    setInEditMode(!inEditMode);
   };
 
   return (
@@ -39,16 +45,22 @@ const Log = () => {
           })}
         <hr />
         <div className={classes.bottomSection}>
-          <button
-            onClick={newHandler}
-            className={classes.newButton}
-            type="button"
-          >
-            Start a New Task
-          </button>
+          {!inEditMode && (
+            <button
+              onClick={newHandler}
+              className={classes.newButton}
+              type="button"
+            >
+              Start a New Task
+            </button>
+          )}
           {log.length > 0 && (
-            <button className={classes.editButton} type="button">
-              Edit
+            <button
+              onClick={editHandler}
+              className={classes.editButton}
+              type="button"
+            >
+              {inEditMode ? "Done" : "Edit"}
             </button>
           )}
         </div>

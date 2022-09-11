@@ -3,6 +3,7 @@ import { createContext, useState, useRef } from "react";
 export const LogContext = createContext({});
 
 export const LogContextProvider = (props) => {
+  const [inEditMode, setInEditMode] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const inputRef = useRef();
   const [loggedTask, setLoggedTask] = useState();
@@ -15,6 +16,8 @@ export const LogContextProvider = (props) => {
   };
 
   const value = {
+    inEditMode,
+    setInEditMode,
     seconds,
     setSeconds,
     inputRef,

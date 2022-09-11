@@ -16,15 +16,13 @@ hr {
   margin-top: 1px;
   border: 1px solid lighten(config.$primary, 10%);
   border-radius: 25px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .logCard {
   background-color: lighten(config.$primary, 5%);
   border-radius: 25px;
-  width: 95%;
-  padding-bottom: 20px;
+  width: 85%;
+  padding: 0px 15px 20px 15px;
 
   .topSection {
     display: flex;
@@ -33,13 +31,8 @@ hr {
     align-items: center;
     color: config.$white;
 
-    .mainHeading {
-      margin-left: 10px;
-    }
-
     .totalTime {
       font-size: 1.125rem;
-      margin-right: 10px;
     }
   }
 
