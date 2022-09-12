@@ -5,7 +5,7 @@ import { LogContext } from "../contexts/log-context";
 import Task from "../components/Task";
 
 const Log = () => {
-  const { inEditMode, setInEditMode } = useContext(LogContext);
+  const { inEditMode, setInEditMode, convertToHHMMSS } = useContext(LogContext);
   const [log, setLog] = useState(
     localStorage.getItem("log") === null
       ? []
@@ -32,7 +32,14 @@ const Log = () => {
             <span>Tracker</span>
           </h1>
           <h2 className={classes.totalTime}>
-            TOTAL: <span>00:00:00</span>
+            TOTAL:{" "}
+            <span>
+              {convertToHHMMSS(
+                log.reduce((sum, item) => {
+                  return (sum += item.seconds);
+                }, 0)
+              )}
+            </span>
           </h2>
         </div>
         <hr />

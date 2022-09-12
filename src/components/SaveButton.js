@@ -12,6 +12,7 @@ const SaveButton = () => {
     const newLoggedTask = {
       task: inputRef.current.value,
       time: convertToHHMMSS(seconds),
+      seconds: seconds,
       id: `${inputRef.current.value}-${Math.floor(Math.random() * 1000)}`,
     };
 
