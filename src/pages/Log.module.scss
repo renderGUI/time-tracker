@@ -80,6 +80,26 @@ hr {
   }
 }
 
+.paginationButtons {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  color: config.$white;
+  font-size: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.paginationActive {
+  font-weight: 600;
+}
+
 @media screen and (min-width: 1000px) {
   .logCard {
     width: 50%;
@@ -93,5 +113,9 @@ hr {
     .editButton {
       font-size: 1.5rem !important;
     }
+  }
+
+  .paginationButtons {
+    font-size: 1.125rem;
   }
 }
