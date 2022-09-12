@@ -1,6 +1,6 @@
 import classes from "./Log.module.scss";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { LogContext } from "../contexts/log-context";
 import Task from "../components/Task";
 
@@ -41,7 +41,15 @@ const Log = () => {
         )}
         {log.length > 0 &&
           log.map((item) => {
-            return <Task task={item.task} time={item.time} />;
+            return (
+              <Task
+                key={item.id}
+                task={item.task}
+                time={item.time}
+                setLog={setLog}
+                currentItemId={item.id}
+              />
+            );
           })}
         <hr />
         <div className={classes.bottomSection}>
@@ -54,15 +62,13 @@ const Log = () => {
               Start a New Task
             </button>
           )}
-          {log.length > 0 && (
-            <button
-              onClick={editHandler}
-              className={classes.editButton}
-              type="button"
-            >
-              {inEditMode ? "Done" : "Edit"}
-            </button>
-          )}
+          <button
+            onClick={editHandler}
+            className={classes.editButton}
+            type="button"
+          >
+            {inEditMode ? "Done" : "Edit"}
+          </button>
         </div>
       </div>
     </div>

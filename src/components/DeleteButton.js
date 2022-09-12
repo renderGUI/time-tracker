@@ -2,8 +2,15 @@ import classes from "./DeleteButton.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const DeleteButton = () => {  
-  const deleteHandler = () => {};
+const DeleteButton = (props) => {
+  const deleteHandler = () => {
+    const currentLog = JSON.parse(localStorage.getItem("log"));
+    const updatedLog = currentLog.filter((item) => {
+      return item.id !== props.currentItemId;
+    });
+    localStorage.setItem("log", JSON.stringify(updatedLog));
+    props.setLog(updatedLog);
+  };
 
   return (
     <>

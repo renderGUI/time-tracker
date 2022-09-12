@@ -10,7 +10,12 @@ const Task = (props) => {
     <div className={classes.taskContainer}>
       <p className={classes.task}>{props.task}</p>
       <p className={classes.time}>{props.time}</p>
-      {inEditMode && <DeleteButton />}
+      {inEditMode && (
+        <DeleteButton
+          setLog={props.setLog}
+          currentItemId={props.currentItemId}
+        />
+      )}
     </div>
   );
 };
